@@ -2,12 +2,15 @@ import os
 
 from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
+from datetime import datetime
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/')                                 #'/' is the default/home URL
 def index():
+   current_time = datetime.now()
+   print('Current time is:', current_time)
    print('Request for index page received')
    return render_template('index.html')
 
