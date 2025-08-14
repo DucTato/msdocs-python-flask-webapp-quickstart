@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route('/')                                 #'/' is the default/home URL
 def index():
    #current_time = datetime.now().strftime("%H:%M:%S")
-   #print('Current time is:', current_time)
+   print('Current time is:', datetime.now())
    converted_time = int(datetime.now().hour)
    if (0 <= converted_time and converted_time <= 12):
     phrase = 'Good morning'
