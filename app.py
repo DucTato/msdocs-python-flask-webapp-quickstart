@@ -19,7 +19,7 @@ def index():
    elif (18 <= converted_time and converted_time <= 24):
     phrase = 'Good evening'
    else:
-    phrase = 'Good morning'
+    phrase = 'Failed to catch time'
       
    print('Request for index page received')
    return render_template('index.html', greetings = phrase)
