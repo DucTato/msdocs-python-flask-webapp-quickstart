@@ -9,10 +9,20 @@ app = Flask(__name__)
 
 @app.route('/')                                 #'/' is the default/home URL
 def index():
-   current_time = datetime.now()
-   print('Current time is:', current_time)
+   #current_time = datetime.now().strftime("%H:%M:%S")
+   #print('Current time is:', current_time)
+   converted_time = int(datetime.now().hour)
+   if (0 <= converted_time and converted_time <= 12):
+    phrase = 'Good morning'
+   elif (13 <= converted_time and converted_time <= 17):
+    phrase = 'Good afternoon'
+   elif (18 <= converted_time and converted_time <= 24):
+    phrase = 'Good evening'
+   else:
+    phrase = 'Good morning'
+      
    print('Request for index page received')
-   return render_template('index.html')
+   return render_template('index.html', greetings = phrase)
 
 @app.route('/favicon.ico')
 def favicon():
